@@ -1,6 +1,7 @@
 package com.zenith;
 
-public class ListNode{
+public class ListNode {
+
     int val;
     ListNode next;
 
@@ -20,7 +21,14 @@ public class ListNode{
         this.next = next;
     }
 
-    public ListNode(int x) { val = x; }
+    public ListNode(int x) {
+        val = x;
+    }
+
+    ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
 
     public static ListNode createSampleLinkedList() {
         ListNode head = new ListNode(1);
@@ -28,5 +36,13 @@ public class ListNode{
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         return head;
+    }
+
+    public static void printList(ListNode head) {
+        System.out.println("The values in the linkedList list are: ");
+        while (head != null) {
+            System.out.println(head.getVal());
+            head = head.getNext();
+        }
     }
 }
