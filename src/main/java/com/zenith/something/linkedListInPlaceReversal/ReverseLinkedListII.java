@@ -21,7 +21,7 @@ public class ReverseLinkedListII {
         ListNode leftNode = curr;
         ListNode prev = curr;
         curr = curr.getNext();
-        ListNode next = null;
+        ListNode next = curr;
         while(i<right){
             next = curr.getNext();
             curr.setNext(prev);
