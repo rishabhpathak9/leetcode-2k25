@@ -1,7 +1,5 @@
 package com.zenith.something.linkedListInPlaceReversal;
 
-import java.util.Objects;
-
 import com.zenith.ListNode;
 import static com.zenith.ListNode.printList;
 
@@ -13,7 +11,7 @@ public class ReverseLinkedListII {
         ListNode curr = dummyNode;
         ListNode beforeLeft = curr;
         int i = 0;
-        while(i<left){
+        while (i < left) {
             beforeLeft = curr;
             curr = curr.getNext();
             i++;
@@ -22,18 +20,18 @@ public class ReverseLinkedListII {
         ListNode prev = curr;
         curr = curr.getNext();
         ListNode next = curr;
-        while(i<right){
+        while (i < right) {
             next = curr.getNext();
             curr.setNext(prev);
             prev = curr;
             curr = next;
             i++;
-        }            
+        }
         leftNode.setNext(next);
         beforeLeft.setNext(prev);
         return dummyNode.getNext();
     }
-    
+
     public static void main(String[] args) {
         ReverseLinkedListII reverseLinkedList = new ReverseLinkedListII();
         ListNode head = ListNode.createSampleLinkedList();
