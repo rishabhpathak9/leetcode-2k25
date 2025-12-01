@@ -13,43 +13,18 @@ public class DailyTemperatures {
         System.out.println(Arrays.toString(result));
     }
 
-    public int[] dailyTemperatures(int[] temperatures) {
-        int[] result = new int[temperatures.length];
-        Deque<TempCount> stack = new ArrayDeque<>();
-        for (int i = temperatures.length - 1; i >= 0; i--) {
-            int currTemp = temperatures[i];
-            int countSinceLast = 0;
-            while (!stack.isEmpty() && stack.peek().getTemp() <= currTemp) {
-                countSinceLast += stack.pop().getCount();
-            }
-            if (stack.isEmpty()) {
-                result[i] = 0;
-                stack.push(new TempCount(currTemp, 0));
-            } else {
-                result[i] = ++countSinceLast;
-                stack.push(new TempCount(currTemp, countSinceLast));
-            }
+    public int[] dailyTemperatures(int[] T) {
+        int n = T.length;
+        int[] ans = new int[n];
+        Deque<Integer> stack = new ArrayDeque<>();
 
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && T[i] > T[stack.peek()]) {
+                int idx = stack.pop();
+                ans[idx] = i - idx;
+            }
+            stack.push(i);
         }
-        return result;
-    }
-}
-
-class TempCount {
-
-    private int temp;
-    private int count;
-
-    protected TempCount(int temp, int count) {
-        this.temp = temp;
-        this.count = count;
-    }
-
-    protected int getTemp() {
-        return temp;
-    }
-
-    protected int getCount() {
-        return count;
+        return ans;
     }
 }
