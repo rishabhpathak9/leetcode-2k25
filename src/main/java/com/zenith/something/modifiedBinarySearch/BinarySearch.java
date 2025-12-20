@@ -32,7 +32,7 @@ public class BinarySearch {
         assert result == -1 : "searchIterative(arr3, 6) should return -1";
     }
 
-    private static int search(int[] arr, int val, int beg, int end) {
+    static int search(int[] arr, int val, int beg, int end) {
         int mid = (beg + end) / 2;
         if (beg == end) {
             return arr[mid] == val ? mid : -1;
