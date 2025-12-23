@@ -1,4 +1,4 @@
-package com.zenith;
+package com.zenith.structures;
 
 public class ListNode {
 

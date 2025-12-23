@@ -1,5 +1,7 @@
 package com.zenith.something.binaryTreeTraversal;
 
+import com.zenith.structures.TreeNode;
+
 public class MaxPathSum {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(2);

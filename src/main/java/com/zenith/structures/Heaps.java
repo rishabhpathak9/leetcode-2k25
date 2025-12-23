@@ -1,4 +1,4 @@
-package com.zenith;
+package com.zenith.structures;
 
 import java.util.ArrayList;
 import java.util.List;

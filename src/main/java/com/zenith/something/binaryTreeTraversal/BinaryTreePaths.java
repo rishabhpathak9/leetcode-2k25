@@ -3,6 +3,8 @@ package com.zenith.something.binaryTreeTraversal;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.zenith.structures.TreeNode;
+
 public class BinaryTreePaths {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
