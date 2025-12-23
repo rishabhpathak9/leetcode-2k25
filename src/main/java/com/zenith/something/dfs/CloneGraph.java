@@ -1,15 +1,38 @@
 package com.zenith.something.dfs;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import com.zenith.structures.GraphNode;
 
 public class CloneGraph {
+    Map<GraphNode, GraphNode> visited = new HashMap<>();
 
     public GraphNode cloneGraph(GraphNode node) {
-        // TODO: Implement graph cloning logic here
-        return null;
+        if (node == null) {
+            return null;
+        }
+        GraphNode clone = new GraphNode(node.val);
+        dfs(node, clone);
+        return clone;
+    }
+
+    private void dfs(GraphNode vertex, GraphNode clone) {
+        visited.put(vertex, clone);
+
+        for (GraphNode neighbor : vertex.neighbors) {
+
+            if (!visited.containsKey(neighbor)) {
+                GraphNode neighborClone = new GraphNode(neighbor.val);
+                dfs(neighbor, neighborClone);
+                clone.neighbors.add(neighborClone);
+
+            } else {
+                clone.neighbors.add(visited.get(neighbor));
+            }
+        }
     }
 
     private static boolean isClone(GraphNode original, GraphNode cloned) {
@@ -71,9 +94,9 @@ public class CloneGraph {
                 + (node1.neighbors.size() == clonedGraph.neighbors.size()));
 
         if (isClone(node1, clonedGraph)) {
-            System.out.println("\n✓ Graph successfully cloned!");
+            System.out.println("\nYes Graph successfully cloned!");
         } else {
-            System.out.println("\n✗ Graph clone failed!");
+            System.out.println("\nNo Graph clone failed!");
         }
     }
 }
