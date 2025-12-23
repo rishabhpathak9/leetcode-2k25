@@ -2,8 +2,8 @@ package com.zenith.something.linkedListInPlaceReversal;
 
 import java.util.Objects;
 
-import com.zenith.ListNode;
-import static com.zenith.ListNode.printList;
+import com.zenith.structures.ListNode;
+import static com.zenith.structures.ListNode.printList;
 
 public class ReverseLinkedList {
 

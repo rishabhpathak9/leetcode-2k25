@@ -2,7 +2,7 @@ package com.zenith.something.fastSlowPointers;
 
 import java.util.Objects;
 
-import com.zenith.ListNode;
+import com.zenith.structures.ListNode;
 
 public class LinkedListCycle {
 

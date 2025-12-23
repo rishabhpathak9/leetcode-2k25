@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import com.zenith.Heaps;
+import com.zenith.structures.Heaps;
 
 public class TestHeapsTest {
 

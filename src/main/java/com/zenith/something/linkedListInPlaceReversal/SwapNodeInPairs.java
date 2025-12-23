@@ -1,7 +1,7 @@
 package com.zenith.something.linkedListInPlaceReversal;
 
-import com.zenith.ListNode;
-import static com.zenith.ListNode.printList;
+import com.zenith.structures.ListNode;
+import static com.zenith.structures.ListNode.printList;
 
 public class SwapNodeInPairs {
 
