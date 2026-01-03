@@ -1,4 +1,4 @@
-package com.zenith.something.dynamicProgramming;
+package com.zenith.something.dynamicProgramming.knapsack01;
 
 import java.util.Arrays;
 
