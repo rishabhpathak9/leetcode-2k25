@@ -1,4 +1,4 @@
-package com.zenith.something.dynamicProgramming.editDistance;
+package com.zenith.something.dynamicProgramming.longestCommonSubsequence.editDistance;
 
 /**
  * LeetCode 72: Edit Distance
