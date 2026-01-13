@@ -55,7 +55,7 @@ public class CountNumberOfTexts {
         System.out.println("Expected: 8\n");
 
         System.out.println("Test 2: pressedKeys = \"222222222222222222222222222222222222\"");
-        System.out.println("Output: " + cnot.countTexts("344644885"));
+        System.out.println("Output: " + cnot.countTexts("222222222222222222222222222222222222"));
         System.out.println("Expected: 82876089\n");
     }
 }
