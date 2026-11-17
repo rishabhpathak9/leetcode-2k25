@@ -1,5 +1,7 @@
 package com.zenith.patterns.dynamicProgramming.bitmasking;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
 
 /**
  * LeetCode 847: Shortest Path Visiting All Nodes
@@ -7,60 +9,45 @@ package com.zenith.patterns.dynamicProgramming.bitmasking;
  * You have an undirected, connected graph of n nodes labeled from 0 to n - 1.
  * You are given an array graph where graph[u] is an array of nodes that u is
  * adjacent to.
- * More formally, for each v in graph[u], there is an undirected edge between u
- * and v.
- * The graph has the following properties:
- * - There are no self-edges (graph[u] does not contain u).
- * - There are no parallel edges (graph[u] does not contain duplicate values).
- * - If v is in graph[u], then u is in graph[v] (the graph is undirected).
- * - The graph may not be connected, meaning there may be two nodes u and v with
- * no path between them.
- * A path that visits every node exactly once is called a Hamiltonian path.
- * Return the length of the shortest Hamiltonian path of the graph. If no such
- * path exists, return -1.
+ * Return the length of the shortest path that visits every node. You may start
+ * and stop at any node, you may revisit nodes multiple times, and you may reuse
+ * edges.
+ *
+ * Approach: multi-source BFS over states (node, visitedMask). Because nodes may
+ * be revisited, a plain DFS over (node, mask) cycles forever; BFS explores
+ * states level by level, so the first state whose mask covers every node gives
+ * the shortest length. Time O(n^2 * 2^n), space O(n * 2^n).
  */
 public class ShortestPathAllNodes {
 
     public int shortestPathLength(int[][] graph) {
         int n = graph.length;
+        if (n == 1) return 0;
         int fullMask = (1 << n) - 1;
-        int[][] memo = new int[1 << n][n];
 
-        // Initialize memo with -1 (uncomputed)
-        for (int i = 0; i < (1 << n); i++) {
-            for (int j = 0; j < n; j++) {
-                memo[i][j] = -1;
-            }
-        }
-
-        int result = Integer.MAX_VALUE;
+        boolean[][] seen = new boolean[1 << n][n];
+        Queue<int[]> queue = new ArrayDeque<>(); // {node, mask}
         for (int i = 0; i < n; i++) {
-            result = Math.min(result, dfs(i, 1 << i, graph, memo, fullMask));
+            queue.offer(new int[] { i, 1 << i });
+            seen[1 << i][i] = true;
         }
 
-        return result == Integer.MAX_VALUE ? -1 : result;
-    }
-
-    private int dfs(int node, int mask, int[][] graph, int[][] memo, int fullMask) {
-        if (mask == fullMask) {
-            return 0;
-        }
-
-        if (memo[mask][node] != -1) {
-            return memo[mask][node];
-        }
-
-        int result = Integer.MAX_VALUE;
-        for (int neighbor : graph[node]) {
-            int newMask = mask | (1 << neighbor);
-            int subResult = dfs(neighbor, newMask, graph, memo, fullMask);
-            if (subResult != Integer.MAX_VALUE) {
-                result = Math.min(result, subResult + 1);
+        int steps = 0;
+        while (!queue.isEmpty()) {
+            steps++;
+            for (int size = queue.size(); size > 0; size--) {
+                int[] cur = queue.poll();
+                for (int next : graph[cur[0]]) {
+                    int mask = cur[1] | (1 << next);
+                    if (mask == fullMask) return steps;
+                    if (!seen[mask][next]) {
+                        seen[mask][next] = true;
+                        queue.offer(new int[] { next, mask });
+                    }
+                }
             }
         }
-
-        memo[mask][node] = result;
-        return result;
+        return -1; // unreachable for a connected graph
     }
 
     public static void main(String[] args) {
