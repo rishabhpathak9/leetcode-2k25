@@ -51,12 +51,10 @@ public class HouseRobberIII {
 
         System.out.println("Test 1: root = [3,2,3,null,3,null,1]");
         TreeNode root1 = new TreeNode(3);
-        root1.left = new TreeNode(9);
-        root1.right = new TreeNode(20);
-        root1.left.left = new TreeNode(4);
-        root1.left.right = new TreeNode(5);
-        root1.right.left = new TreeNode(2);
-        root1.right.right = new TreeNode(7);
+        root1.left = new TreeNode(2);
+        root1.right = new TreeNode(3);
+        root1.left.right = new TreeNode(3);
+        root1.right.right = new TreeNode(1);
         System.out.println("Output: " + hriii.rob(root1));
         System.out.println("Expected: 7\n");
 

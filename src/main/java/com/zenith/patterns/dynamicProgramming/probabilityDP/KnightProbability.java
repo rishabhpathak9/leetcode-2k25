@@ -66,6 +66,6 @@ public class KnightProbability {
 
         System.out.println("Test 3: n = 8, k = 30, row = 6, column = 4");
         System.out.println("Output: " + kp.knightProbability(8, 30, 6, 4));
-        System.out.println("Expected: 0.5731...\n");
+        System.out.println("Expected: 1.9052566298333648E-4\n");
     }
 }

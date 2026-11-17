@@ -85,7 +85,6 @@ public class PerfectSquares {
                 }
             }
         }
-        dp(len,n);
         return dp[n];
     }
 
@@ -111,7 +110,7 @@ public class PerfectSquares {
         // Test cases
         System.out.println("Test 1: n = 7");
         System.out.println("Output: " + ps.numSquares(7));
-        System.out.println("Expected: 2\n");
+        System.out.println("Expected: 4\n");
 
         System.out.println("Test 2: n = 2");
         System.out.println("Output: " + ps.numSquares(2));

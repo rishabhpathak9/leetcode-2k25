@@ -36,7 +36,7 @@ public class BestTimeBuySellStockIII {
 
         System.out.println("Test 1: prices = [3,3,5,0,0,3,1,4]");
         System.out.println("Output: " + btbsiii.maxProfit(new int[]{3,3,5,0,0,3,1,4}));
-        System.out.println("Expected: 4\n");
+        System.out.println("Expected: 6\n");
 
         System.out.println("Test 2: prices = [1,2,3,4,5]");
         System.out.println("Output: " + btbsiii.maxProfit(new int[]{1,2,3,4,5}));
