@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.zenith</groupId>
-	<artifactId>something</artifactId>
+	<artifactId>leetcode-patterns</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>something</name>
-	<description>Demo project for Spring Boot</description>
+	<name>leetcode-patterns</name>
+	<description>LeetCode solutions in Java, organised by problem-solving pattern</description>
 	<url/>
 	<licenses>
 		<license/>
